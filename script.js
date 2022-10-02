@@ -70,10 +70,20 @@ submitBook.addEventListener('click', () => {
         bookCardsSection.removeChild(currentCard);
     });
 
+    const readStatus = document.createElement('button');
+    readStatus.textContent = `${myLibrary[myLibrary.length - 1].read}`;
+
+    readStatus.addEventListener('click', (e) => {
+        let currentCardNum = e.target.parentElement.getAttribute('data');
+        myLibrary[currentCardNum].readStatus();
+        readStatus.textContent = `${myLibrary[currentCardNum].read}`;
+    });
+
     cardDiv.appendChild(para);
     cardDiv.appendChild(author);
     cardDiv.appendChild(pages);
     cardDiv.appendChild(removeBtn);
+    cardDiv.appendChild(readStatus);
     bookCardsSection.appendChild(cardDiv);
 
     inputs.forEach(input => {
