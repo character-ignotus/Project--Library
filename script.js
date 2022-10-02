@@ -8,9 +8,31 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-    const title = prompt('Title');
-    const author = prompt('Author');
-    const pages = +prompt('Pages');
-    const read = Boolean(prompt('Read'));
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const pages = +document.querySelector('#pages').value;
+    const read = Boolean(document.querySelector('#read').value);
     myLibrary.push(new Book(title, author, pages, read));
 }
+
+const modal =  document.querySelector('.modal');
+const openModal = document.querySelector('.open-button');
+const closeModal = document.querySelector('.close-button');
+const submitBook = document.querySelector('.submit-book');
+const inputs = Array.from(document.querySelectorAll('input'));
+
+submitBook.addEventListener('click', () => {
+    addBookToLibrary();
+    inputs.forEach(input => {
+        input.value = '';
+    });
+    console.table(myLibrary);
+});
+
+openModal.addEventListener('click', () => {
+    modal.showModal();
+});
+
+closeModal.addEventListener('click', () => {
+    modal.close();
+});
