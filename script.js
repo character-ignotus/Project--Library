@@ -35,9 +35,7 @@ bookCardsSection.style.height = '600px';
 bookCardsSection.style.backgroundColor = 'grey';
 body.appendChild(bookCardsSection);
 
-submitBook.addEventListener('click', () => {
-    addBookToLibrary();
-
+function createBookCard() {
     let cardDiv = document.createElement('div');
     cardDiv.setAttribute('data', `${myLibrary.length - 1}`);
 
@@ -85,7 +83,11 @@ submitBook.addEventListener('click', () => {
     cardDiv.appendChild(removeBtn);
     cardDiv.appendChild(readStatus);
     bookCardsSection.appendChild(cardDiv);
+}
 
+submitBook.addEventListener('click', () => {
+    addBookToLibrary();
+    createBookCard();
     inputs.forEach(input => {
         input.value = '';
     });
