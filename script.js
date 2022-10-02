@@ -7,6 +7,14 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.readStatus = function() {
+    if(this.read === 'Read') {
+        this.read = 'Not read';
+    } else {
+        this.read = 'Read';
+    }
+}
+
 function addBookToLibrary() {
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
