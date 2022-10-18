@@ -29,11 +29,6 @@ const openModal = document.querySelector('.open-button');
 const closeModal = document.querySelector('.close-button');
 const submitBook = document.querySelector('.submit-book');
 const inputs = Array.from(document.querySelectorAll('input'));
-const bookCardsSection = document.createElement('div');
-bookCardsSection.style.width = '800px';
-bookCardsSection.style.height = '600px';
-bookCardsSection.style.backgroundColor = 'grey';
-body.appendChild(bookCardsSection);
 
 function createBookCard() {
     let cardDiv = document.createElement('div');
@@ -65,7 +60,7 @@ function createBookCard() {
             console.log(div.getAttribute);
         }
 
-        bookCardsSection.removeChild(currentCard);
+        body.removeChild(currentCard);
     });
 
     const readStatus = document.createElement('button');
@@ -82,7 +77,7 @@ function createBookCard() {
     cardDiv.appendChild(pages);
     cardDiv.appendChild(removeBtn);
     cardDiv.appendChild(readStatus);
-    bookCardsSection.appendChild(cardDiv);
+    body.appendChild(cardDiv);
 }
 
 submitBook.addEventListener('click', () => {
