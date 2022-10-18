@@ -61,6 +61,7 @@ body {
     flex-grow: 1;
     display: grid;
     justify-items: center;
+    align-items: center;
     gap: 30px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
@@ -69,9 +70,15 @@ body {
     border: 1px solid black;
 
     display: flex;
+    gap: 10px;
     align-items: center;
     justify-content: center;
     height: 25px;
+}
+
+.footer img {
+    width: 20px;
+    height: 20px;
 }
 
 
