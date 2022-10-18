@@ -28,30 +28,56 @@ const modal =  document.querySelector('.modal');
 const openModal = document.querySelector('.open-button');
 const closeModal = document.querySelector('.close-button');
 const submitBook = document.querySelector('.submit-book');
+const cardsSection = document.querySelector('.cards-section')
 const inputs = Array.from(document.querySelectorAll('input'));
 
 function createBookCard() {
     let cardDiv = document.createElement('div');
+    cardDiv.setAttribute('class', 'card')
     cardDiv.setAttribute('data', `${myLibrary.length - 1}`);
 
+    let cardBgcImg = document.createElement('div');
+    cardBgcImg.setAttribute('class', 'bgc-image');
+    cardDiv.appendChild(cardBgcImg);
+
+    let cardInfo = document.createElement('div');
+    cardInfo.setAttribute('class', 'card-info');
+    cardDiv.appendChild(cardInfo);
+
+    let cardBtns = document.createElement('div');
+    cardBtns.setAttribute('class', 'card-btns');
+    cardDiv.appendChild(cardBtns);
+
+        let bookTitle = document.createElement('div');
+        bookTitle.setAttribute('class', 'book');
+        cardInfo.appendChild(bookTitle);
         let para = document.createElement('p');
         para.textContent = myLibrary[myLibrary.length - 1].title;
+        bookTitle.appendChild(para);
 
+        let bookAuthor = document.createElement('div');
+        bookAuthor.setAttribute('class', 'book');
+        cardInfo.appendChild(bookAuthor);
         let author = document.createElement('p');
         author.textContent = myLibrary[myLibrary.length - 1].author;
+        bookAuthor.appendChild(author);
 
+        let bookPages = document.createElement('div');
+        bookPages.setAttribute('class', 'book');
+        cardInfo.appendChild(bookPages);
         let pages = document.createElement('p');
         pages.textContent = myLibrary[myLibrary.length - 1].pages;
+        bookPages.appendChild(pages);
 
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'Remove';
 
     removeBtn.addEventListener('click', (e) => {
-        console.log(e.target.parentElement);
+        console.log(e.target.parentElement.parentElement);
 
         let length = myLibrary.length;
-        let currentCard = e.target.parentElement;
-        let currentCardNum = e.target.parentElement.getAttribute('data');
+        let currentCard = e.target.parentElement.parentElement;
+        let currentCardNum = e.target.parentElement.parentElement.getAttribute('data');
         myLibrary.splice(currentCardNum, 1);
 
         for(let i = currentCardNum; i < length; i++) {
@@ -60,24 +86,21 @@ function createBookCard() {
             console.log(div.getAttribute);
         }
 
-        body.removeChild(currentCard);
+        cardsSection.removeChild(currentCard);
     });
 
     const readStatus = document.createElement('button');
     readStatus.textContent = `${myLibrary[myLibrary.length - 1].read}`;
 
     readStatus.addEventListener('click', (e) => {
-        let currentCardNum = e.target.parentElement.getAttribute('data');
+        let currentCardNum = e.target.parentElement.parentElement.getAttribute('data');
         myLibrary[currentCardNum].readStatus();
         readStatus.textContent = `${myLibrary[currentCardNum].read}`;
     });
 
-    cardDiv.appendChild(para);
-    cardDiv.appendChild(author);
-    cardDiv.appendChild(pages);
-    cardDiv.appendChild(removeBtn);
-    cardDiv.appendChild(readStatus);
-    body.appendChild(cardDiv);
+    cardBtns.appendChild(removeBtn);
+    cardBtns.appendChild(readStatus);
+    cardsSection.appendChild(cardDiv);
 }
 
 submitBook.addEventListener('click', () => {
