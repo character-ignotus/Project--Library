@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #f7f1f0;
+    background-color: #ecf0f3;
 }
 
 .header {
@@ -59,6 +59,10 @@ body {
 .cards-section {
     border: 3px solid green;
     flex-grow: 1;
+    display: grid;
+    justify-items: center;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .footer { 
@@ -68,4 +72,68 @@ body {
     align-items: center;
     justify-content: center;
     height: 25px;
+}
+
+
+.card {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+    padding-bottom: 7.5px;
+    background-color: #ecf0f3;
+    box-shadow: 6px 6px 13px #cbced1,
+                -6px -6px 13px #ffffff;
+    border-radius: 30px;
+}
+
+.bgc-image {
+    height: 110px;
+    background-color: green;
+    border-radius: 30px 30px 0px 0px;
+}
+
+.card-info {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.book {
+    margin: 10px 0 10px 0;
+    font-size: 1.1rem;
+    font-weight: 900;
+    font-family: 'Roboto';
+
+    background-color: #ecf0f3;
+    box-shadow: inset 3px 3px 3px #cbced1,
+                inset -3px -3px 3px #ffffff;
+    border-radius: 20px;
+}
+
+.book > p {
+    padding: 10px;
+}
+
+.card-btns {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.card-btns button {
+    font-size: 1.15rem;
+    font-weight: 1000;
+    font-family: 'Roboto';;
+    border: none;
+    padding: 5px 20px;
+
+    background-color: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #ffffff;
+    border-radius: 20px;
 }
