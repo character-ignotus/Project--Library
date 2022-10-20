@@ -107,8 +107,11 @@ body {
 
 .bgc-image {
     height: 110px;
-    background-color: green;
     border-radius: 30px 30px 0px 0px;
+    background-image: url(Images/card-bgc.png);
+    background-position: center;
+    background-position-y: 135px;
+    background-size: cover;
 }
 
 .card-info {
