@@ -87,11 +87,12 @@ body {
     align-items: center;
     justify-content: center;
     height: 25px;
+    font-size: 0.8rem;
 }
 
 .footer img {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
 }
 
 .card {
