@@ -52,8 +52,20 @@ body {
     padding: 15px 0;
 }
 
-.btn-section > button {
+.open-button {
+    border: 0px;
+    padding: 2.5px 10px;
     font-size: 1.5rem;
+    font-weight: 900;
+    border: 1px solid black;
+    border-radius: 17px;
+}
+
+.open-button:hover {
+    background-color:#008080 ;
+    color: #ffffff;
+    border: 0px;
+    box-shadow: 3px 4px 4px rgba(138,131,117,0.4);
 }
 
 .cards-section {
@@ -141,6 +153,14 @@ body {
     box-shadow: 13px 13px 20px #cbced1,
                 -13px -13px 20px #ffffff;
     border-radius: 20px;
+}
+
+.card-btns button:nth-child(1):hover {
+    color: #e54c38;
+}
+
+.card-btns button:nth-child(2):hover {
+    color: rgb(76, 193, 235);
 }
 
 .modal {
