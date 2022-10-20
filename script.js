@@ -104,12 +104,14 @@ function createBookCard() {
 }
 
 submitBook.addEventListener('click', () => {
-    addBookToLibrary();
-    createBookCard();
-    inputs.forEach(input => {
-        input.value = '';
-    });
-    console.table(myLibrary);
+    if(inputs[0].value !== '' && inputs[1].value !== '' && inputs[2].value) {
+        addBookToLibrary();
+        createBookCard();
+        inputs.forEach(input => {
+            input.value = '';
+        });
+        console.table(myLibrary);
+    }
 });
 
 openModal.addEventListener('click', () => {
