@@ -66,7 +66,7 @@ function createBookCard() {
         bookPages.setAttribute('class', 'book');
         cardInfo.appendChild(bookPages);
         let pages = document.createElement('p');
-        pages.textContent = myLibrary[myLibrary.length - 1].pages;
+        pages.textContent = `Pages: ${myLibrary[myLibrary.length - 1].pages}`;
         bookPages.appendChild(pages);
 
     const removeBtn = document.createElement('button');
@@ -107,15 +107,16 @@ submitBook.addEventListener('click', () => {
     if(inputs[0].value !== '' && inputs[1].value !== '' && inputs[2].value) {
         addBookToLibrary();
         createBookCard();
-        inputs.forEach(input => {
-            input.value = '';
-        });
-        console.table(myLibrary);
     }
 });
 
 openModal.addEventListener('click', () => {
     modal.showModal();
+    if(inputs[0].value !== '' && inputs[1].value !== '' && inputs[2].value) {
+        inputs.forEach(input => {
+            input.value = '';
+        })
+    }
 });
 
 closeModal.addEventListener('click', () => {
