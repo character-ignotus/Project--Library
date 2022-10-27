@@ -63,6 +63,7 @@ body {
     font-weight: 900;
     border: 1px solid black;
     border-radius: 17px;
+    color: black;
 }
 
 .open-button:hover {
